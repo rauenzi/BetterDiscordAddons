@@ -37,10 +37,12 @@
 
 .perm-details-button {
     cursor: pointer;
-    height: 12px;
+    height: 100%;
 }
 
 .perm-details {
+	height: 20px;
+	background:var(--background-secondary);
     display: flex;
     justify-content: flex-end;
 }
@@ -108,11 +110,11 @@
     box-sizing: border-box;
     contain: content;
     justify-content: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
+    top: 5%;
+    left: 5%;
+    bottom: 5%;
+    right: 5%;
+    opacity: 5%;
     pointer-events: none;
     position: absolute;
     user-select: none;
@@ -134,6 +136,7 @@
 
 #permissions-modal-wrapper #permissions-modal {
     contain: layout;
+    height: 100%;
     flex-direction: column;
     pointer-events: auto;
     border: 1px solid rgba(28,36,43,.6);
@@ -174,12 +177,13 @@
 }
 
 #permissions-modal-wrapper .role-side {
-    width: auto;
-    min-width: 150px;
+    max-width: 300px;
+    min-width: 200px;
     background: #2f3136;
     flex: 0 0 auto;
     overflow: hidden;
     display: flex;
+    height: 100%;
     min-height: 1px;
     position: relative;
 }
@@ -199,6 +203,8 @@
     margin-bottom: 5px;
     cursor: pointer;
     color: #dcddde;
+    word-break:break-all;
+    border: 1px solid #444;
 }
 
 #permissions-modal-wrapper .role-item:hover {
@@ -214,6 +220,7 @@
     background-color: #36393f;
     flex: 0 0 auto;
     display: flex;
+    height: 100%;
     min-height: 1px;
     position: relative;
     padding-left: 10px;
@@ -252,7 +259,6 @@
     margin-left: 10px;
 }
 
-
 .member-perms::-webkit-scrollbar-thumb, .member-perms::-webkit-scrollbar-track,
 #permissions-modal-wrapper *::-webkit-scrollbar-thumb, #permissions-modal-wrapper *::-webkit-scrollbar-track {
     background-clip: padding-box;
@@ -287,8 +293,6 @@
     height: 8px;
     width: 8px;
 }
-
-
 
 .theme-light #permissions-modal-wrapper #permissions-modal {
     background: #fff;
