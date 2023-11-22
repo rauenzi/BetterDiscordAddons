@@ -183,13 +183,28 @@ module.exports = (Plugin, Api) => {
             const slateNode = ReactTools.getOwnerInstance(textarea);
             const slate = slateNode?.ref?.current?.getSlateEditor();
             if (!slate) return; // bail out if no slate
-
-            const currentSelection = Utilities.deepclone(slate.selection);
-            slate.apply({type: "insert_text", text: leftWrapper, path: slate.selection.anchor.path, offset: slate.selection.anchor.offset});
-            slate.apply({type: "insert_text", text: rightWrapper, path: slate.selection.focus.path, offset: slate.selection.focus.offset});
-
-            currentSelection.anchor.offset += leftWrapper.length;
-            currentSelection.focus.offset += rightWrapper.length;
+            
+            let offset;  // new cursor offset
+            
+            if (slate.selection.anchor.offset <= slate.selection.focus.offset) {
+                offset = slate.selection.focus.offset + leftWrapper.length;
+                slate.apply({ type: "insert_text", text: leftWrapper, path: slate.selection.anchor.path, offset: slate.selection.anchor.offset });
+                slate.apply({ type: "insert_text", text: rightWrapper, path: slate.selection.focus.path, offset: slate.selection.focus.offset });
+            }
+            else {
+                offset = slate.selection.anchor.offset + leftWrapper.length;
+                slate.apply({ type: "insert_text", text: rightWrapper, path: slate.selection.anchor.path, offset: slate.selection.anchor.offset });
+                slate.apply({ type: "insert_text", text: leftWrapper, path: slate.selection.focus.path, offset: slate.selection.focus.offset });
+            }
+            
+            // new selection data
+            const newSelection = {
+                anchor: { path: slate.selection.anchor.path, offset: offset },
+                focus: { path: slate.selection.focus.path, offset: offset }
+            };
+            
+            slate.selection = newSelection; // update selection data
+            slate.apply({ type: "insert_text", text: "", path: slate.selection.anchor.path, offset: offset }); // update cursor position
             slateNode.focus();
         }
 
@@ -211,7 +226,7 @@ module.exports = (Plugin, Api) => {
                         type: "submenu",
                         label: letter,
                         items: Object.keys(this.allLanguages[letter]).map(language => {
-                            return {label: this.allLanguages[letter][language], action: () => {this.wrapSelection("```" + language + "\n", "```");}};
+                            return {label: this.allLanguages[letter][language], action: () => {this.wrapSelection("```" + language, "```");}};
                         })
                     };
                 })
