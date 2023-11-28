@@ -132,6 +132,11 @@ module.exports = (Plugin, Api) => {
                         if (letter.toLowerCase() == letter.toUpperCase()) letterNum = letterNum - 1;
                         return index != -1 ? letterNum % 2 == compare ? letter.toUpperCase() : letter.toLowerCase() : letter;
                     }
+                    else if (wrapper == this.settings.wrappers.firstcaps) {
+                        if (letterNum==1 || middle[letterNum-2]===" ") return letter.toUpperCase();
+                    }
+                    else if (wrapper == this.settings.wrappers.uppercase) {return letter.toUpperCase();}
+                    else if (wrapper == this.settings.wrappers.lowercase) {return letter.toLowerCase();}
                     return letter;
                 });
                 if (wrapper == this.settings.wrappers.upsidedown && this.settings.formatting.reorderUpsidedown) return before + middle.split("").reverse().join("") + after;

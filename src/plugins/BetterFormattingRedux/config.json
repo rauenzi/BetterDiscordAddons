@@ -44,7 +44,10 @@
                 {"type": "switch", "id": "upsidedown", "name": "Upsidedown", "value": true},
                 {"type": "switch", "id": "varied", "name": "Varied Caps", "value": true},
                 {"type": "switch", "id": "leet", "name": "Leet (1337)", "value": false},
-                {"type": "switch", "id": "thicc", "name": "Extra Thicc", "value": false}
+                {"type": "switch", "id": "thicc", "name": "Extra Thicc", "value": false},
+                {"type": "switch", "id": "firstcaps", "name": "First Caps", "value": false},
+                {"type": "switch", "id": "uppercase", "name": "Uppercase", "value": false},
+                {"type": "switch", "id": "lowercase", "name": "Lowercase", "value": false}
             ]
         },
         {
@@ -60,7 +63,10 @@
                 {"type": "switch", "id": "upsidedown", "name": "Upsidedown", "value": true},
                 {"type": "switch", "id": "varied", "name": "Varied Caps", "value": true},
                 {"type": "switch", "id": "leet", "name": "Leet (1337)", "value": false},
-                {"type": "switch", "id": "thicc", "name": "Extra Thicc", "value": false}
+                {"type": "switch", "id": "thicc", "name": "Extra Thicc", "value": false},
+                {"type": "switch", "id": "firstcaps", "name": "First Caps", "value": false},
+                {"type": "switch", "id": "uppercase", "name": "Uppercase", "value": false},
+                {"type": "switch", "id": "lowercase", "name": "Lowercase", "value": false}
             ]
         },
         {
@@ -76,7 +82,10 @@
                 {"type": "textbox", "id": "upsidedown", "name": "Upsidedown", "note": "The wrapper to flip the text upsidedown.", "value": "&&"},
                 {"type": "textbox", "id": "varied", "name": "Varied Caps", "note": "The wrapper to VaRy the capitalization.", "value": "=="},
                 {"type": "textbox", "id": "leet", "name": "Leet (1337)", "note": "The wrapper to talk in 13375p34k.", "value": "++"},
-                {"type": "textbox", "id": "thicc", "name": "Extra Thicc", "note": "The wrapper to get 乇乂下尺卂 下卄工匚匚.", "value": "$$"}
+                {"type": "textbox", "id": "thicc", "name": "Extra Thicc", "note": "The wrapper to get 乇乂下尺卂 下卄工匚匚.", "value": "$$"},
+                {"type": "textbox", "id": "firstcaps", "name": "First Caps", "note": "The wrapper to capitalize the first letter.", "value": "--"},
+                {"type": "textbox", "id": "uppercase", "name": "Uppercase", "note": "The wrapper to convert to uppercase.", "value": ">>"},
+                {"type": "textbox", "id": "lowercase", "name": "Lowercase", "note": "The wrapper to convert to lowercase.", "value": "<<"}
             ]
         },
         {
