@@ -273,6 +273,7 @@ module.exports = (Plugin, Api) => {
         }
 
         addToolbar(textarea) {
+            this.updateSettingLanguage(this.settings.language["selectlanguage"]);
             const toolbarElement = this.buildToolbar();
             if (this.settings.plugin.hoverOpen == true) toolbarElement.classList.add("bf-hover");
             if (this.isOpen) toolbarElement.classList.add("bf-visible");
@@ -321,6 +322,17 @@ module.exports = (Plugin, Api) => {
             return panel.getElement();
         }
 
+        updateSettingLanguage(language) {
+            if (language == "English") {
+                this.toolbarData = require("toolbardata.js");
+                this._config = require("config_English.js");
+            }
+            if (language == "Korean") {
+                this.toolbarData = require("toolbardata_Korean.js");
+                this._config = require("config_Korean.js");
+            }
+        }
+
         updateSettings(group, id, value) {
 
             if (group == "toolbar") this.setupToolbar();
@@ -340,6 +352,12 @@ module.exports = (Plugin, Api) => {
                 if (id == "rightSide") this.updateSide();
                 if (id == "toolbarOpacity") this.updateOpacity();
                 if (id == "fontSize") this.updateFontSize();
+            }
+
+            if (group == "language") {
+                if (value == "English") this.updateSettingLanguage("English");
+                if (value == "Korean") this.updateSettingLanguage("Korean");
+                this.setupToolbar();
             }
 
             // let resetButton = $("<button>");

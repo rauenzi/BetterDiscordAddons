@@ -181,6 +181,32 @@
                     "max": 100
                 }
             ]
+        },
+        {
+            "type": "category",
+            "id": "language",
+            "name": "language Options",
+            "collapsible": true,
+            "shown": false,
+            "settings": [
+                {
+                    "type": "dropdown",
+                    "id": "selectlanguage",
+                    "name": "Language Setting",
+                    "note": "Set your language.",
+                    "value": "English",
+                    "options": [
+                        {
+                            "label": "English",
+                            "value": "English"
+                        },
+                        {
+                            "label": "한국어",
+                            "value": "Korean"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
