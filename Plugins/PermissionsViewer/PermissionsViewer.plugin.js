@@ -188,6 +188,29 @@ const config = {
                     note: "Добавить кнопку для отображения полномочий с помощью контекстных меню."
                 }
             }
+        },
+        nl: {
+            contextMenuLabel: "Permissies",
+            popoutLabel: "Permissies",
+            modal: {
+                header: "{{name}}'s Permissies",
+                rolesLabel: "Rollen",
+                permissionsLabel: "Permissies",
+                owner: "@eigenaar"
+            },
+            settings: {
+                popouts: {
+                    name: "Toon in Popouts",
+                    note: "Toont de totale rechten van een gebruiker in zijn pop-out, vergelijkbaar met rollen."
+                },
+                contextMenus: {
+                    name: "Contextmenuknop",
+                    note: "Voegt een knop toe om de machtigingsmodaliteit voor het selecteren van contextmenu's te bekijken."
+                },
+                displayMode: {
+                    name: "Modale weergavemodus"
+                }
+            }
         }
     },
     main: "index.js"
